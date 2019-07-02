@@ -32,7 +32,7 @@ Route::get('about', 'aboutController@page')->name('about.page');
 Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'Admin'], function (){
-    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('dashboard', 'dashboardController@index')->name('dashboard');
     Route::resource('slider', 'sliderController');
     Route::resource('category', 'categoryController');
     Route::resource('product', 'productController');
@@ -46,9 +46,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'Admin'], func
     Route::delete('quotation/{id}','quotationController@destory')->name('quotation.destory');
     Route::get('quotation/{id}','quotationController@show')->name('quotation.show');
 
-    Route::get('contact','ContactController@index')->name('contact.index');
-    Route::get('contact/{id}','ContactController@show')->name('contact.show');
-    Route::delete('contact/{id}','ContactController@destroy')->name('contact.destroy');
+    Route::get('contact','contactController@index')->name('contact.index');
+    Route::get('contact/{id}','contactController@show')->name('contact.show');
+    Route::delete('contact/{id}','contactController@destroy')->name('contact.destroy');
 
 });
     
